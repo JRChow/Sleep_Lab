@@ -1,0 +1,5 @@
+function [sector] = ParSectors(intervalWidth, intervalBottom)
+
+r = rand(3,1);
+
+sector = r

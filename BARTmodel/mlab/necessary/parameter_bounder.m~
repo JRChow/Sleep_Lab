@@ -1,0 +1,28 @@
+function xout = pararmeter_bounder( xin, realsIn, lower, upper)
+%this little program is useful for putting parameters into bounded or
+%reals . Bounded between upper and lower
+%
+%xin = the parameter
+%unboundedIn = 1 if passing unbounded in and need the parameter to be
+%bounded
+%   unboundedIn = 0 if passing bounded and need unbounded parameter
+%upperBound is the value of the upperbound, if there is no upperbound set
+%upperBound = [];
+
+if (realsIn)
+    if (isempty(upper))
+       xmid = exp(xin); 
+    else
+       xmid = upperBound.*(exp(xin)./(1+exp(xin))); 
+    end;
+            
+else
+if (isempty(upperBound))
+        xmid = log(xin);
+    else
+        xmid = -log((upper-lower)/(xin-lower) - 1);
+    end;
+    
+end;
+
+xout = xmid;

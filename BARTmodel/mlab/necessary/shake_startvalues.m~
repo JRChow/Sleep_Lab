@@ -1,0 +1,11 @@
+function [xout] = shake_startvalues(xin, iter, know, biasInd, sens)
+%shakes start values 
+
+[r, c] = size(xin);
+
+thePert = rand(r,c);
+
+xmid = xin.*(1+((thePert.*2)-1).*exp(-1/iter));
+[r, c] = size(xmid);
+
+xout = xmid;
